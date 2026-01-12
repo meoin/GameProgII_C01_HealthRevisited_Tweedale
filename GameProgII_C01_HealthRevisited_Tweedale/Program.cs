@@ -25,7 +25,22 @@ namespace GameProgII_Classes_Tweedale
             Console.Write("Enter a name for your hero: ");
             Console.ForegroundColor = ConsoleColor.White;
 
-            string inputName = Console.ReadLine();
+            string inputName = "";
+
+            while (true)
+            {
+                inputName = Console.ReadLine();
+
+                if (inputName.Any(Char.IsLetter)) break;
+                else
+                {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write("Enter a name for your hero: ");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+            }
+            
             Console.Clear();
 
             player = new Player(name: inputName, maxHealth: health, maxShield: shield);
